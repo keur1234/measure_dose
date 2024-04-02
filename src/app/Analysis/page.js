@@ -13,10 +13,6 @@ export default function Analysis() {
         ["data31", "data32", "data33"]
     ]);
 
-    // const handleNext = () => {
-    //     setCurrentIndex(prevIndex => prevIndex + 1);
-    // };
-
     const handleNext = () => {
         setCurrentIndex(prevIndex => prevIndex + 1);
         setShowNameInput(true); // กลับไปแสดงชื่อหลังจากกด Next

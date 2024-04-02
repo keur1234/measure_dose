@@ -1,0 +1,42 @@
+"use client"
+
+import { useEffect, useRef } from 'react';
+
+export default function draw_circle({ image, circleRadius }) {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        const x = 1200.5/4
+        const y =  567.5/4
+
+        // Clear canvas
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw image
+        const img = new Image();
+        img.src = image; // ใช้ props รูปภาพที่รับเข้ามา
+        img.onload = () => {
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
+            // Draw circle
+            context.beginPath();
+            // context.arc(100, 100, circleRadius, 0, 2 * Math.PI);
+            // context.arc(x, y, 66.5/4, 0, 2 * Math.PI);
+            context.arc(x, y, circleRadius/4, 0, 2 * Math.PI);
+
+            // context.fillStyle = 'rgba(255, 0, 0, 0.5)';
+            // context.fill();
+            // context.closePath();
+            context.lineWidth = 2;
+            context.strokeStyle = 'red';
+            context.stroke();
+        };
+    }, [image,circleRadius]);
+
+    return (
+        <canvas ref={canvasRef} width={500} height={500} />
+    )
+  }
+  

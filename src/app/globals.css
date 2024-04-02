@@ -17,11 +17,24 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: #ff0000; /* เปลี่ยนสีตามที่ต้องการ */
+  border-radius: 50%; /* ทำให้เป็นรูปวงกลม */
 }

@@ -8,9 +8,11 @@ export default function Analysis() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showNameInput, setShowNameInput] = useState(true);
     const [dataSet, setDataSet] = useState([
-        ["data11", "data12", "data13"],
-        ["data21", "data22", "data23"],
-        ["data31", "data32", "data33"]
+        [1200.5,  567.5,   66.5],
+        [1444.5, 1110.5,   66.3],
+        [ 990.5, 1500.5,   67.4],
+        [ 572.5, 1302.5,   66.8],
+        [ 668.5,  696.5,   69. ]
     ]);
 
     const handleNext = () => {
@@ -23,19 +25,17 @@ export default function Analysis() {
     };
     
     return (
-        // <PointProvider pointData={dataSet} index={currentIndex}>
-        //     <p>Component {currentIndex + 1}/{dataSet.length}</p>
-        //     <AddDataName/>
-        //     <AddDataNumber onNext={handleNext}/>
-        // </PointProvider>
-        <PointProvider pointData={dataSet} index={currentIndex}>
-            <p>Component {currentIndex + 1}/{dataSet.length}</p>
-            {showNameInput ? (
-                <AddDataName onShowNumberInput={handleShowNumberInput} />
-            ) : (
-                <AddDataNumber onNext={handleNext} />
-            )}
-        </PointProvider>
+        <main className=" mt-20 w-5/6">
+            <h1 className="font-bold text-4xl text-center pb-16">ANALYSIS IMAGE</h1>
+            <PointProvider pointData={dataSet} index={currentIndex}>
+                {showNameInput ? (
+                    <AddDataName onShowNumberInput={handleShowNumberInput} currentInde={currentIndex + 1} dataLength={dataSet.length}/>
+                ) : (
+                    <AddDataNumber onNext={handleNext} currentInde={currentIndex + 1} dataLength={dataSet.length}/>
+                )}
+            </PointProvider>
+        </main>
+        
     )
 }
 

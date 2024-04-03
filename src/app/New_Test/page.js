@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
+//add New Test
 export default function New_Test() {
   return (
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
       <div className="flex flex-col w-3/4">
-
         <h1 className="font-bold text-4xl text-center pb-16">NEW TEST</h1>
         
         <form className="" action="">   

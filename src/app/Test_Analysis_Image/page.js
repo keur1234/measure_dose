@@ -37,11 +37,11 @@ export default function Analysis_Image() {
       </div>
 
       <div className="flex w-full justify-end mb-8 ">
-      <Link href={`/Measure_Dose`}>
-        <button className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]">
-          NEXT
-        </button>
-      </Link>
+        <Link href={`/Measure_Dose`}>
+          <button className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]">
+            NEXT
+          </button>
+        </Link>
       </div>
     </main>
   )

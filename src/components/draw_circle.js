@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function draw_circle({ image, circleRadius }) {
+export default function draw_circle({ image, circleRadius, Xaxis, Yaxis }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        const x = 1200.5/4
-        const y =  567.5/4
+        const x = Xaxis/4
+        const y =  Yaxis/4
 
         // Clear canvas
         // context.clearRect(0, 0, canvas.width, canvas.height);

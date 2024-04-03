@@ -1,16 +1,11 @@
-import React, { createContext, useContext, useState, useEffect  } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const PointContext = createContext();
 
 export const PointProvider = ({ children, pointData, index }) => {
   const [data, setData] = useState(pointData[index]);
   const [newData, setNewData] = useState(pointData);
-  console.log("pointData.length",pointData.length)
-  console.log("pointData",pointData)
-  console.log("newData.length",newData.length)
-  console.log("newData",newData)
   
-
   useEffect(() => {
     setData(pointData[index]);
   }, [pointData, index]);

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+//Home page
 export default function Home() {
   return (
     <main className="flex flex-col items-center w-full">
@@ -13,7 +14,7 @@ export default function Home() {
       <div className="flex flex-col justify-between w-5/6">
         <div className="flex flex-col w-ful my-11 ">
           <p className="font-bold text-4xl">History</p>
-          <p className="text-xl text-[#545454]">Modify / History</p>
+          <p className="text-xl text-[#545454]">Modify/History</p>
         </div>
 
         <div className="grid grid-cols-2 gap-x-16 gap-y-6 w-full ">

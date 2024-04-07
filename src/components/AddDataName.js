@@ -11,7 +11,7 @@ export default function AddDataName({ onShowNumberInput ,currentInde, dataLength
   const handleUpdateData = () => {
     updateData(name);
     onShowNumberInput(); // เมื่อคลิกปุ่ม Update Name ให้แสดง AddDataNumber แทน
-};
+  };
 
   return (
     <form className="flex flex-col justify-between items-center">

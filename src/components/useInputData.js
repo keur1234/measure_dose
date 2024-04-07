@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const InputData = createContext();
 
-export const PointProvider = ({ children }) => {
+export const InputProvider = ({ children }) => {
   const [data, setData] = useState();
 
   const updateData = (newItem) => {

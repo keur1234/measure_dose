@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 
-export default function New_Test() {
+export default function Result() {
   
   const router = useRouter();
   const receivedData = router?.state?.data;

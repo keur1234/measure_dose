@@ -7,10 +7,10 @@ const ImageContext = createContext();
 export const useImageContext = () => useContext(ImageContext);
 
 export const ImageProvider = ({ children }) => {
-  const [image, setImage] = useState(null);
+  const [image, setImageDataUrl] = useState(null);
 
-  const setImageData = (newImage) => {
-    setImage(newImage);
+  const setImageData = (url) => {
+    setImageDataUrl(url);
   };
 
   return (

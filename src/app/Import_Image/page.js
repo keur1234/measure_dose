@@ -1,14 +1,43 @@
 "use client"
 import { useState } from 'react';
 import { useImageContext  } from '@/components/useImageContext'
-
-import Link from 'next/link'
+import React from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Import_Image() {
-  const { image, setImageData } = useImageContext();
+  const [image, setImage]  = useState();
+  const [processedImage, setProcessedImage] = React.useState(null);
+  const { imageContext, setImageData } = useImageContext();
+  const router = useRouter();
 
-  const handleFileChange = (event) => {
-    setImageData(event.target.files[0]);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    try {
+        const response = await fetch('http://localhost:5000/api/process_image', {
+            method: 'POST',
+            body: formData
+        });
+
+        // console.log("response",response)
+
+        if (response.ok) {
+            const blob = await response.blob();
+            const imgUrl = URL.createObjectURL(blob);
+            setProcessedImage(imgUrl);
+            setImageData(imgUrl);
+
+            router.push('/Analysis');
+        } else {
+            // Handle errors
+            console.error('Image upload failed:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during image upload:', error);
+    }
   };
 
   return (
@@ -20,13 +49,14 @@ export default function Import_Image() {
           <input 
             className='hidden'
             type="file" 
+            accept="image/*"
             id="fileInput" 
-            onChange={handleFileChange}
+            onChange={(e) => setImage(e.target.files[0])}
           />
           <label 
             className='flex justify-center items-center bg-white p-2.5 rounded-lg outline-none w-full resize-none overflow-y-auto' 
             style={{ boxShadow: 'inset 0 0 3px rgba(0, 0, 0, 0.5)'}} 
-            for="fileInput"
+            htmlFor="fileInput" // Change "for" to "htmlFor"
           >
             {image && <img src={URL.createObjectURL(image)} alt="Uploaded Image" />}
           </label>
@@ -34,12 +64,13 @@ export default function Import_Image() {
       </div>
 
       <div className="flex w-full justify-end mb-8 ">
-        {/* <Link href={`/Analysis_Image`}> */}
-        <Link href={`/Analysis`}>
-          <button className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]">
-            NEXT
-          </button>
-        </Link>
+        <button onClick={handleSubmit} className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]">
+          NEXT
+        </button>
+      </div>
+
+      <div>
+        {processedImage && <img src={processedImage} alt="Processed Image" />}
       </div>
     </main>
   )

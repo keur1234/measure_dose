@@ -23,7 +23,7 @@ export default function AddDataNumber({ onNext, currentInde, dataLength }) {
     setCircleRadius(value);
   };
 
-  const imageUrl = URL.createObjectURL(image)
+  const imageUrl = image
 
   const handleUpdateData = () => {
     updateData(circleRadius);

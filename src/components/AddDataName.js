@@ -17,7 +17,7 @@ export default function AddDataName({ onShowNumberInput ,currentInde, dataLength
     <form className="flex flex-col justify-between items-center">
       <div className="flex w-full h-max max-h-fit">
         {image && <img 
-          src={URL.createObjectURL(image)} 
+          src={(image)} 
           width={500}
           height={500}
           alt="Uploaded Image" 

@@ -1,19 +1,34 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PointProvider } from '@/components/usePointContext';
 import AddDataName from '@/components/AddDataName';
 import AddDataNumber from '@/components/AddDataNumber';
 
+import axios from 'axios';
+
 export default function Analysis() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showNameInput, setShowNameInput] = useState(true);
-    const [dataSet, setDataSet] = useState([
-        [1200.5,  567.5,   66.5],
-        [1444.5, 1110.5,   66.3],
-        [ 990.5, 1500.5,   67.4],
-        [ 572.5, 1302.5,   66.8],
-        [ 668.5,  696.5,   69. ]
-    ]);
+    const [dataSet, setDataSet] = useState([]);
+
+    const fetchDataFromApi = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/med_info');
+            const responseData = response.data
+            setDataSet(responseData);
+            // if (response.ok) {
+            //     setDataSet(responseData);
+            // } else {
+            //     console.error('failed to :', response.statusText);
+            // }
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchDataFromApi()
+    }, []);
 
     const handleNext = () => {
         setCurrentIndex(prevIndex => prevIndex + 1);

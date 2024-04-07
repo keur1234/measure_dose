@@ -7,17 +7,12 @@ import { useImageContext  } from '@/components/useImageContext'
 
 import DrawCircle from "@/components/draw_circle"
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
 export default function AddDataNumber({ onNext, currentInde, dataLength }) {
   const { data, updateData } = usePointContext();
   const { newData } = usePointContext();
   const { image } = useImageContext();
   
   const [circleRadius, setCircleRadius] = useState(data[2]); 
-
-  const router = useRouter();
 
   const handleSliderChange = (value) => {
     setCircleRadius(value);
@@ -27,15 +22,7 @@ export default function AddDataNumber({ onNext, currentInde, dataLength }) {
 
   const handleUpdateData = () => {
     updateData(circleRadius);
-    onNext(); // เมื่อคลิกปุ่ม Update Number ให้กลับไปแสดง AddDataName แทน
-
-    //ส่ง api 
-    if (currentInde === dataLength) {
-      router.push({
-        pathname: '/Result',
-        state: { data: newData }
-      });
-    }
+    onNext(); 
   };
 
   return (

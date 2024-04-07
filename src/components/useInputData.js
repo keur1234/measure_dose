@@ -1,20 +1,21 @@
+"use client"
 import { createContext, useContext, useState } from 'react';
 
 const InputData = createContext();
 
 export const InputProvider = ({ children }) => {
-  const [data, setData] = useState();
+  const [astId, setAstId] = useState("");
+  const [bacteria, setBacteria] = useState();
+  const [name, setName] = useState("");
+  const [newDataPoint, setNewDataPoint] = useState([]);
 
-  const updateData = (newItem) => {
-    setData(prevData => {
-      const newDataArray = [...prevData];
-      newDataArray[index] = [...newDataArray[index], newItem]; // เพิ่มข้อมูลใหม่ลงในตำแหน่งที่ต้องการ
-      return newDataArray; // อัพเดตข้อมูลใหม่ทั้งหมด
-    });
-  };
+  console.log("astId",astId)
+  console.log("bacteria",bacteria)
+  console.log("name",name)
+  console.log("newDataPoint",newDataPoint)
 
   return (
-    <InputData.Provider value={{ data, updateData }}>
+    <InputData.Provider value={{ astId, setAstId, bacteria, setBacteria, name, setName, newDataPoint, setNewDataPoint }}>
       {children}
     </InputData.Provider>
   );

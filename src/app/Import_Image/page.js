@@ -22,8 +22,6 @@ export default function Import_Image() {
             body: formData
         });
 
-        // console.log("response",response)
-
         if (response.ok) {
             const blob = await response.blob();
             const imgUrl = URL.createObjectURL(blob);

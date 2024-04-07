@@ -1,28 +1,21 @@
 "use client"
-import { useState } from 'react';
+import { useState, useContext  } from 'react';
 // import Link from 'next/link'
+import { useInputData } from '@/components/useInputData';
 
-import { useRouter  } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 //add New Test
 export default function New_Test() {
-  const [astId, setAstId] = useState("");
-  const [bacteria, setBacteria] = useState();
-  const [name, setName] = useState("");
+  const {astId, setAstId} = useInputData();
+  const {bacteria, setBacteria} = useInputData();
+  const {name, setName} = useInputData();
 
   const router = useRouter  ();
 
-  const handleSandData = (e) => {
-    e.preventDefault()
-    router.push({
-      pathname: '/Import_Image',
-      query: {
-        astId,
-        bacteria,
-        name
-      }
-    })
+  const handleUpdateData = () => {
+    router.push('/Import_Image')
   };
 
   return (
@@ -66,27 +59,13 @@ export default function New_Test() {
         </div>
 
         <div className="flex w-full justify-end mb-8 ">
-          {/* <Link href={`/Import_Image`}> */}
-          {/* <Link
-            href={{
-              pathname: '/Import_Image',
-              query: {
-                astId: {astId},
-                bacteria: {bacteria},
-                name: {name},
-              }
-            }}
-          > */}
-          {/* <Link href={`/Import_Image?astId=${astId}&bacteria=${bacteria}&name=${name}`}> */}
-            <button 
-              className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]"
-              type="button" 
-              onClick={() => router.push('/Import_Image/?astId=${astId}&bacteria=${bacteria}&name=${name}')}
-              // onClick={() => handleUpdateData()}
-            >
-              NEXT
-            </button>
-          {/* </Link> */}
+          <button 
+            className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]"
+            type="button" 
+            onClick={() => handleUpdateData()}
+          >
+            NEXT
+          </button>
         </div>
       </form>
     </main>

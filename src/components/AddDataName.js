@@ -1,12 +1,24 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { usePointContext } from './usePointContext';
 import { useImageContext  } from '@/components/useImageContext'
+import { useInputData } from '@/components/useInputData';
 
-export default function AddDataName({ onShowNumberInput ,currentInde, dataLength}) {
-  const { data, updateData } = usePointContext();
+export default function AddDataName({ onShowNumberInput , currentInde, dataLength}) {
+  const { data, newData, updateData } = usePointContext();
   const [name, setName] = useState("");
   const { image } = useImageContext();
+  const { setNewDataPoint } = useInputData();
+
+  const router = useRouter  ();
+  
+  useEffect(() => {
+    if(dataLength > 0 && dataLength < currentInde){
+      setNewDataPoint(newData)
+      router.push('/Result')
+    }
+  }, []);
 
   const handleUpdateData = () => {
     updateData(name);

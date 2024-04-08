@@ -52,7 +52,7 @@ export default function Import_Image() {
             onChange={(e) => setImage(e.target.files[0])}
           />
           <label 
-            className='flex justify-center items-center bg-white p-2.5 rounded-lg outline-none w-full resize-none overflow-y-auto' 
+            className='flex justify-center items-center bg-white p-2.5 rounded-lg outline-none w-full resize-none overflow-y-auto min-h-[500px] max-h-[900px]' 
             style={{ boxShadow: 'inset 0 0 3px rgba(0, 0, 0, 0.5)'}} 
             htmlFor="fileInput" // Change "for" to "htmlFor"
           >
@@ -61,8 +61,8 @@ export default function Import_Image() {
         </form>
       </div>
 
-      <div className="flex w-full justify-end mb-8 ">
-        <button onClick={handleSubmit} className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]">
+      <div className="flex w-full justify-end my-8 ">
+        <button onClick={handleSubmit} className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]">
           NEXT
         </button>
       </div>

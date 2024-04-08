@@ -20,23 +20,23 @@ export default function New_Test() {
 
   return (
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
-      <form>
-        <div className="flex flex-col w-3/4">
+      <form className='flex items-center flex-col w-full' >
+        <div className="flex flex-col md:w-3/4">
           <h1 className="font-bold text-4xl text-center pb-16">NEW TEST</h1>
           
-          <div className="text-3xl pb-16">
+          <div className="text-2xl pb-16">
             <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">AST ID</p>
             <input 
-              className="w-full min-h-24 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none my-4 p-2 px-4 text-4xl"
+              className="w-full min-h-20 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none mt-4 mb-1 p-2 px-4 text-3xl"
               onChange={(e) => setAstId(e.target.value)}
             />
-            <p className="text-2xl">The AST ID is the unique number for label each dish</p>
+            <p className="text-lg">The AST ID is the unique number for label each dish</p>
           </div>
 
-          <div className="text-3xl pb-16">
+          <div className="text-2xl pb-16">
             <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Bacteria</p>
             <select 
-              className="w-full min-h-24 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none my-4 p-2 px-4 text-4xl" 
+              className="w-full min-h-20 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none mt-4 mb-1 p-2 px-4 text-3xl" 
               name="bacterias" 
               id="bacterias"
               onChange={(e) => setBacteria(e.target.value)}
@@ -46,13 +46,13 @@ export default function New_Test() {
               <option value="opel">Opel</option>
               <option value="audi">Audi</option>
             </select>
-            <p className="text-2xl">Select bacteria that you use in the test</p>
+            <p className="text-lg">Select bacteria that you use in the test</p>
           </div>
 
-          <div className="text-3xl pb-16">
+          <div className="text-2xl pb-16">
             <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Your name</p>
             <input 
-              className="w-full min-h-24 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none my-4 p-2 px-4 text-4xl"
+              className="w-full min-h-20 border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none mt-4 p-2 px-4 text-3xl"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -60,7 +60,7 @@ export default function New_Test() {
 
         <div className="flex w-full justify-end mb-8 ">
           <button 
-            className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]"
+            className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]"
             type="button" 
             onClick={() => handleUpdateData()}
           >

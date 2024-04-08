@@ -27,19 +27,20 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
 
   return (
     <form className="flex flex-col justify-between items-center">
-      <div className="flex w-full h-max max-h-fit">
+      <div className="flex flex-col w-full h-max max-h-fit lg:flex-row items-center ">
         {image && <img 
           src={(image)} 
           width={500}
           height={500}
           alt="Uploaded Image" 
+          className='rounded-lg'
         />}
         
-        <div className="text-3xl ml-12 bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">
+        <div className="text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
           <div className='p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>
             <p>{currentInde} of {dataLength}</p>
           </div>
-          <div className='p-12 h-full flex flex-col justify-between'>
+          <div className='p-6 h-full flex flex-col justify-between'>
             <div>
               <p className='mb-8'>Confirm antibiotic name</p>
               <select 
@@ -61,7 +62,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
 
       <div className="flex w-full justify-end m-8 ">
         <button 
-          className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-6 px-32 rounded-full bg-[#CDCDCD]"
+          className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]"
           type="button" onClick={() => handleUpdateData(name)}
         >
           NEXT

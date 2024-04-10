@@ -1,5 +1,4 @@
 "use client"
-import { useState, useContext  } from 'react';
 // import Link from 'next/link'
 import { useInputData } from '@/components/useInputData';
 
@@ -41,10 +40,13 @@ export default function New_Test() {
               id="bacterias"
               onChange={(e) => setBacteria(e.target.value)}
             >
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
+              <option value="Enterobacterales">Enterobacterales</option>
+              <option value="Pseudomonas aeruginosa">Pseudomonas aeruginosa</option>
+              <option value="Acinetobacter spp.">Acinetobacter spp.</option>
+              <option value="Burkholderia cepacia complex">Burkholderia cepacia complex</option>
+              <option value="Stenotrophomonas maltophilia">Stenotrophomonas maltophilia</option>
+              <option value="Enterococcus spp.">Enterococcus spp.</option>
+              <option value="Haemophilus influenzae and Haemophilus parainfluenzae">Haemophilus influenzae and Haemophilus parainfluenzae</option>
             </select>
             <p className="text-lg">Select bacteria that you use in the test</p>
           </div>

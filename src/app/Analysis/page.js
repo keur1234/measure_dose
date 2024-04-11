@@ -41,7 +41,7 @@ export default function Analysis() {
     
     return (
         <main className=" mt-20 w-5/6">
-            <h1 className="font-bold text-4xl text-center pb-16">ANALYSIS IMAGE</h1>
+            <h1 className="text-2xl md:text-4xl pb-8 md:pb-16 font-bold text-center ">ANALYSIS IMAGE</h1>
             <PointProvider pointData={dataSet} index={currentIndex}>
                 {showNameInput ? (
                     <AddDataName onShowNumberInput={handleShowNumberInput} currentInde={currentIndex + 1} dataLength={dataSet.length}/>

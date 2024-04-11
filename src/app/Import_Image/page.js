@@ -55,7 +55,7 @@ export default function Import_Image() {
     
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
       <div className="flex flex-col w-3/4">
-        <h1 className="font-bold text-4xl text-center pb-16">IMPORT IMAGE</h1>
+        <h1 className="text-2xl md:text-4xl pb-8 md:pb-16 font-bold text-center">IMPORT IMAGE</h1>
         
         <form className='flex flex-col items-center w-full px-4' action="">   
           <input 
@@ -73,7 +73,7 @@ export default function Import_Image() {
             {image && <img src={URL.createObjectURL(image)} alt="Uploaded Image" />}
           </label>
           <label  
-            style={{ fontSize: '40px' }}
+            className='mt-4 md:mt-8 text-2xl md:text-4xl'
           >
             {loading}
             {status}
@@ -90,7 +90,7 @@ export default function Import_Image() {
       </div>
 
       <div className="flex w-full justify-end my-8 ">
-        <button onClick={handleSubmit} className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]">
+        <button onClick={handleSubmit} className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24  font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]">
           NEXT
         </button>
       </div>

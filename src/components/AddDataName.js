@@ -67,16 +67,16 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
           width={500}
           height={500}
           alt="Uploaded Image" 
-          className='rounded-lg'
+          className='rounded-lg w-[320px] md:w-auto md:max-w-[500px]'
         />}
         
-        <div className="text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
-          <div className='p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>
+        <div className="text-xl md:text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
+          <div className='p-3 px-4 md:p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>
             <p>{currentInde} of {dataLength}</p>
           </div>
-          <div className='p-6 h-full flex flex-col justify-between'>
+          <div className='p-2 px-4 md:p-6 h-full flex flex-col justify-between'>
             <div>
-              <p className='mb-8'>Confirm antibiotic name</p>
+              <p className='mb-4 md:mb-8'>Confirm antibiotic name</p>
               <select 
                 className="border border-white border-b-stone-500 outline-none" 
                 name="names" 
@@ -111,7 +111,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
                 <option value="MOX: Moxalactam">MOX: Moxalactam</option>
                 <option value=": Cefiderocol">: Cefiderocol</option>
                 <option value="CXM: Cefuroxime">CXM: Cefuroxime</option>
-                <option value=": Cefazolin (surrogate test for oral cephalosporins and uncomplicated UTIs)">: Cefazolin (surrogate test for oral cephalosporins and uncomplicated UTIs)</option>
+                {/* <option value=": Cefazolin (surrogate test for oral cephalosporins and uncomplicated UTIs)">: Cefazolin (surrogate test for oral cephalosporins and uncomplicated UTIs)</option> */}
                 <option value=": Loracarbef">: Loracarbef</option>
                 <option value="CEC: Cefaclor">CEC: Cefaclor</option>
                 <option value=": Cefdinir">: Cefdinir</option>
@@ -190,7 +190,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
 
       <div className="flex w-full justify-end m-8 ">
         <button 
-          className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]"
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
           type="button" onClick={() => handleUpdateData(antibioticname)}
         >
           NEXT

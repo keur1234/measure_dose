@@ -31,28 +31,29 @@ export default function AddDataNumber({ onNext, currentInde, dataLength }) {
 
         <DrawCircle image={imageUrl} circleRadius={circleRadius} Xaxis={data[0]} Yaxis={data[1]}/>
         
-        <div className="text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
-          <div className='p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>
+        <div className="text-xl md:text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
+          <div className='p-3 px-4 md:p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>
             <p>{currentInde} of {dataLength}</p>
           </div>
-          <div className='p-6 h-full flex flex-col justify-between'>
-            <div>
-              <p className='mb-8'>Confirm Inhibition Zone : {circleRadius}</p>
-              <Slider 
-                min={40}  
-                max={400} 
-                step={0.01}
-                value={circleRadius} 
-                onChange={handleSliderChange}
-              />
+          <div className='p-2 px-4 md:p-6 h-full flex flex-col '>
+            <div className='mb-4 md:mb-8 flex flex-col md:flex-row'>
+              <label>Confirm Inhibition Zone : </label>
+              <label>{circleRadius}</label>
             </div>
+            <Slider 
+              min={40}  
+              max={440} 
+              step={0.01}
+              value={circleRadius} 
+              onChange={handleSliderChange}
+            />
           </div>
         </div>
       </div>
 
       <div className="flex w-full justify-end m-8 ">
         <button 
-          className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]"
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
           type="button" 
           onClick={() => handleUpdateData(circleRadius)
         }  

@@ -36,7 +36,7 @@ export default function draw_circle({ image, circleRadius, Xaxis, Yaxis }) {
     }, [image,circleRadius]);
 
     return (
-        <canvas className='rounded-lg' ref={canvasRef} width={500} height={500} />
+        <canvas className='rounded-lg w-[320px] md:w-[500px]' ref={canvasRef} width={500} height={500} />
     )
   }
   

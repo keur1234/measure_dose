@@ -5,23 +5,57 @@ import { usePointContext } from './usePointContext';
 import { useImageContext  } from '@/components/useImageContext'
 import { useInputData } from '@/components/useInputData';
 
+import axios from 'axios';
+
 export default function AddDataName({ onShowNumberInput , currentInde, dataLength}) {
   const { data, newData, updateData } = usePointContext();
-  const [name, setName] = useState("");
+  const [antibioticname, setName] = useState("");
   const { image } = useImageContext();
-  const { setNewDataPoint } = useInputData();
+  const { astId, bacteria, name, newDataPoint,  setNewDataPoint, setTestData } = useInputData();
 
   const router = useRouter  ();
+
+  const TestInfoApi = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/test_info', {
+        astId: astId,
+        bacteria: bacteria,
+        name: name,
+        newDataPoint: newData
+      });
+
+      // console.log("response TestInfoApi",response)
+
+      setTestData(response.data)
+
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+    }
+  };
+
+  // console.log("newData",newData)
   
   useEffect(() => {
-    if(dataLength > 0 && dataLength < currentInde){
-      setNewDataPoint(newData)
-      router.push('/Result')
+    if (dataLength > 0 && dataLength < currentInde) {
+      try {
+        setNewDataPoint(newData);
+      } catch (error) {
+        console.error("Error while setting new data point:", error);
+      }
+    
+      try {
+        TestInfoApi();
+      } catch (error) {
+        console.error("Error while testing info API:", error);
+      }
+    
+      router.push('/Result');
     }
+    
   }, []);
 
   const handleUpdateData = () => {
-    updateData(name);
+    updateData(antibioticname);
     onShowNumberInput(); // เมื่อคลิกปุ่ม Update Name ให้แสดง AddDataNumber แทน
   };
 
@@ -157,7 +191,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
       <div className="flex w-full justify-end m-8 ">
         <button 
           className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] text-3xl py-5 px-24 rounded-full bg-[#CDCDCD]"
-          type="button" onClick={() => handleUpdateData(name)}
+          type="button" onClick={() => handleUpdateData(antibioticname)}
         >
           NEXT
         </button>

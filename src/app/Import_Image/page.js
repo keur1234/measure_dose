@@ -6,39 +6,53 @@ import { useRouter } from 'next/navigation';
 
 export default function Import_Image() {
   const [image, setImage]  = useState();
+  const [status, setStatus]  = useState('');
+  const [loading, setLoading] = useState(false);
   const [processedImage, setProcessedImage] = React.useState(null);
   const { imageContext, setImageData } = useImageContext();
   const router = useRouter();
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("image", image);
 
     try {
+        setStatus('')
+        setLoading(true);
+        setLoading('Uploading...');
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const response = await fetch('http://localhost:5000/api/process_image', {
             method: 'POST',
             body: formData
         });
 
         if (response.ok) {
+            setLoading(false);
+            setStatus('Image upload Successfuly ');
+
+            await new Promise(resolve => setTimeout(resolve, 1000));
             const blob = await response.blob();
             const imgUrl = URL.createObjectURL(blob);
             setProcessedImage(imgUrl);
             setImageData(imgUrl);
-
             router.push('/Analysis');
         } else {
-            // Handle errors
-            console.error('Image upload failed:', response.statusText);
+          setStatus('Image upload failed: ' + response.message);
         }
+    
+        
     } catch (error) {
+        setStatus('Image upload failed: ' + error.message);
         console.error('Error during image upload:', error);
-    }
+    } finally {
+    // Hide loading state
+    setLoading(false);
+}
   };
 
   return (
+    
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
       <div className="flex flex-col w-3/4">
         <h1 className="font-bold text-4xl text-center pb-16">IMPORT IMAGE</h1>
@@ -58,6 +72,20 @@ export default function Import_Image() {
           >
             {image && <img src={URL.createObjectURL(image)} alt="Uploaded Image" />}
           </label>
+          <label  
+            style={{ fontSize: '40px' }}
+          >
+            {loading}
+            {status}
+          </label>
+          <label 
+            className='text' 
+            style={{ boxShadow: 'inset 0 0 3px rgba(0, 0, 0, 0.5)'}} 
+
+          >
+
+          </label>
+
         </form>
       </div>
 

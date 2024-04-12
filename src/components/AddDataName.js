@@ -24,16 +24,12 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
         newDataPoint: newData
       });
 
-      // console.log("response TestInfoApi",response)
-
       setTestData(response.data)
 
     } catch (error) {
         console.error('Error fetching data:', error.message);
     }
   };
-
-  // console.log("newData",newData)
   
   useEffect(() => {
     if (dataLength > 0 && dataLength < currentInde) {
@@ -179,8 +175,6 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
                 <option value="SPX: Sparfloxacin">SPX: Sparfloxacin</option>
                 <option value="TVA: Trovafloxacin">TVA: Trovafloxacin</option>
                 <option value=": Trimethoprim-Sulfamethoxazole">: Trimethoprim-Sulfamethoxazole</option>
-
-
               </select>
             </div>
             {/* <p>This is correct</p> */}

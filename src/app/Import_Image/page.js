@@ -94,10 +94,10 @@ export default function Import_Image() {
           NEXT
         </button>
       </div>
-
+{/* 
       <div>
         {processedImage && <img src={processedImage} alt="Processed Image" />}
-      </div>
+      </div> */}
     </main>
   )
 }

@@ -6,6 +6,8 @@ export const PointProvider = ({ children, pointData, index }) => {
   const [data, setData] = useState(pointData[index]);
   const [newData, setNewData] = useState(pointData);
 
+  console.log("newData",newData)
+
   useEffect(() => {
     setData(pointData[index]);
   }, [pointData, index]);
@@ -21,8 +23,18 @@ export const PointProvider = ({ children, pointData, index }) => {
     });
   };
 
+  const editData = () => {
+    setNewData(prevData => {
+      const newDataArray = [...prevData];
+      if (newDataArray[index]) {
+        newDataArray[index].pop(); // ลบตัวสุดท้ายของ array
+      }
+      return newDataArray;
+    });
+  };
+
   return (
-    <PointContext.Provider value={{ data, updateData, newData }}>
+    <PointContext.Provider value={{ data, updateData, editData, newData }}>
       {children}
     </PointContext.Provider>
   );

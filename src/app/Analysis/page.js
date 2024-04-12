@@ -16,11 +16,7 @@ export default function Analysis() {
             const response = await axios.get('http://localhost:5000/api/med_info');
             const responseData = response.data
             setDataSet(responseData);
-            // if (response.ok) {
-            //     setDataSet(responseData);
-            // } else {
-            //     console.error('failed to :', response.statusText);
-            // }
+
         } catch (error) {
             console.error('Error fetching data:', error.message);
         }
@@ -35,6 +31,10 @@ export default function Analysis() {
         setShowNameInput(true); // กลับไปแสดงชื่อหลังจากกด Next
     };
 
+    const handleBack = () => {
+        setShowNameInput(true); // กลับไปแสดงชื่อหลังจากกด Next
+    };
+
     const handleShowNumberInput = () => {
         setShowNameInput(false); // แสดงตัวเลขแทนชื่อ
     };
@@ -46,7 +46,7 @@ export default function Analysis() {
                 {showNameInput ? (
                     <AddDataName onShowNumberInput={handleShowNumberInput} currentInde={currentIndex + 1} dataLength={dataSet.length}/>
                 ) : (
-                    <AddDataNumber onNext={handleNext} currentInde={currentIndex + 1} dataLength={dataSet.length}/>
+                    <AddDataNumber onNext={handleNext} onBack={handleBack} currentInde={currentIndex + 1} dataLength={dataSet.length}/>
                 )}
             </PointProvider>
         </main>

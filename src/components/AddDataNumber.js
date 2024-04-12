@@ -7,8 +7,8 @@ import { useImageContext  } from '@/components/useImageContext'
 
 import DrawCircle from "@/components/draw_circle"
 
-export default function AddDataNumber({ onNext, currentInde, dataLength }) {
-  const { data, updateData } = usePointContext();
+export default function AddDataNumber({ onNext, onBack, currentInde, dataLength }) {
+  const { data, updateData, editData } = usePointContext();
   const { newData } = usePointContext();
   const { image } = useImageContext();
   
@@ -23,6 +23,11 @@ export default function AddDataNumber({ onNext, currentInde, dataLength }) {
   const handleUpdateData = () => {
     updateData(circleRadius);
     onNext(); 
+  };
+
+  const handleEditData = () => {
+    editData()
+    onBack(); 
   };
 
   return (
@@ -53,19 +58,20 @@ export default function AddDataNumber({ onNext, currentInde, dataLength }) {
 
       <div className="flex w-full justify-end m-8 ">
         <button 
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] mx-2"
+          type="button" 
+          onClick={() => handleEditData()}  
+        >
+          BACK
+        </button>
+        <button 
           className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
           type="button" 
-          onClick={() => handleUpdateData(circleRadius)
-        }  
-        >NEXT</button>
+          onClick={() => handleUpdateData(circleRadius)}  
+        >
+          NEXT
+        </button>
       </div>
-      {/* <p>inputDataNumber</p>
-      <p>Data: {JSON.stringify(data)}</p>
-      <input 
-        type='text'
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <button type="button" onClick={() => handleUpdateData(number)}>Update Number</button> */}
     </form>
   );
 };

@@ -12,6 +12,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
   const [antibioticname, setName] = useState("");
   const { image } = useImageContext();
   const { astId, bacteria, name, newDataPoint,  setNewDataPoint, setTestData } = useInputData();
+  const [images, setImages] = useState("");
 
   const router = useRouter  ();
 
@@ -47,8 +48,13 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
     
       router.push('/Result');
     }
-    
   }, []);
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      setImages(data[3]);
+    }
+  }, [data]);
 
   const handleUpdateData = () => {
     updateData(antibioticname);
@@ -58,13 +64,13 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
   return (
     <form className="flex flex-col justify-between items-center">
       <div className="flex flex-col w-full h-max max-h-fit lg:flex-row items-center ">
-        {image && <img 
-          src={(image)} 
+        <img 
           width={500}
-          height={500}
+          height={500} 
+          src={`data:image/png;base64,${images}`} 
           alt="Uploaded Image" 
           className='rounded-lg w-[320px] md:w-auto md:max-w-[500px]'
-        />}
+        />
         
         <div className="text-xl md:text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
           <div className='p-3 px-4 md:p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>

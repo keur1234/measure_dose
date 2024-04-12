@@ -15,8 +15,11 @@ export default function Analysis() {
         try {
             const response = await axios.get('http://localhost:5000/api/med_info');
             const responseData = response.data
-            setDataSet(responseData);
-
+            if (responseData) {
+                setDataSet(responseData);
+            } else {
+                console.error('No data received from API');
+            }
         } catch (error) {
             console.error('Error fetching data:', error.message);
         }

@@ -1,9 +1,11 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
+import { useImageContext  } from '@/components/useImageContext'
 
-export default function draw_circle({ image, circleRadius, Xaxis, Yaxis }) {
+export default function draw_circle({  circleRadius, Xaxis, Yaxis }) {
     const canvasRef = useRef(null);
+    const { image } = useImageContext();
 
     useEffect(() => {
         const canvas = canvasRef.current;

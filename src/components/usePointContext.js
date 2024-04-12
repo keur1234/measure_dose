@@ -6,7 +6,7 @@ export const PointProvider = ({ children, pointData, index }) => {
   const [data, setData] = useState(pointData[index]);
   const [newData, setNewData] = useState(pointData);
 
-  console.log("newData",newData)
+  // console.log("newData",newData)
 
   useEffect(() => {
     setData(pointData[index]);

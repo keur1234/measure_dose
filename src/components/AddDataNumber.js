@@ -3,22 +3,18 @@ import { useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css'; 
 import { usePointContext } from './usePointContext';
-import { useImageContext  } from '@/components/useImageContext'
+// import { useImageContext  } from '@/components/useImageContext'
 
 import DrawCircle from "@/components/draw_circle"
 
 export default function AddDataNumber({ onNext, onBack, currentInde, dataLength }) {
   const { data, updateData, editData } = usePointContext();
-  const { newData } = usePointContext();
-  const { image } = useImageContext();
   
   const [circleRadius, setCircleRadius] = useState(data[2]); 
 
   const handleSliderChange = (value) => {
     setCircleRadius(value);
   };
-
-  const imageUrl = image
 
   const handleUpdateData = () => {
     updateData(circleRadius);
@@ -34,7 +30,7 @@ export default function AddDataNumber({ onNext, onBack, currentInde, dataLength 
     <form className="flex flex-col justify-between items-center">
       <div className="flex flex-col w-full h-max max-h-fit lg:flex-row items-center ">
 
-        <DrawCircle image={imageUrl} circleRadius={circleRadius} Xaxis={data[0]} Yaxis={data[1]}/>
+        <DrawCircle circleRadius={circleRadius} Xaxis={data[0]} Yaxis={data[1]}/>
         
         <div className="text-xl md:text-3xl bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 lg:ml-12 lg:mt-0 lg:h-[500px]">
           <div className='p-3 px-4 md:p-8 rounded-tl-[28px] rounded-tr-[28px] bg-[#D9D9D9]'>

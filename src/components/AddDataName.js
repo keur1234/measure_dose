@@ -61,8 +61,13 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
     onShowNumberInput(); // เมื่อคลิกปุ่ม Update Name ให้แสดง AddDataNumber แทน
   };
 
+  const eventUpdateData = (e) => {
+    e.preventDefault();
+    handleUpdateData()
+  };
+
   return (
-    <form className="flex flex-col justify-between items-center">
+    <form className="flex flex-col justify-between items-center" onSubmit={eventUpdateData}>
       <div className="flex flex-col w-full h-max max-h-fit lg:flex-row items-center ">
         <img 
           width={500}
@@ -84,7 +89,9 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
                 name="names" 
                 id="names"
                 onChange={(e) => setName(e.target.value)}
+                required
               >
+                <option value="">Select an antibiotic name</option> 
                 <option value="AMP: Ampicillin">AMP: Ampicillin</option>
                 <option value="PIP: Piperacillin">PIP: Piperacillin</option>
                 <option value="MEC: Mecillinam">MEC: Mecillinam</option>
@@ -191,7 +198,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
       <div className="flex w-full justify-end m-8 ">
         <button 
           className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
-          type="button" onClick={() => handleUpdateData(antibioticname)}
+          type="submit" 
         >
           NEXT
         </button>

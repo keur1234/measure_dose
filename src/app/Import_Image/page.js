@@ -90,7 +90,7 @@ export default function Import_Image() {
       </div>
 
       <div className="flex w-full justify-end my-8 ">
-        <button onClick={handleSubmit} className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24  font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]">
+        <button onClick={handleSubmit} className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24  font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] hover:bg-[#AAAAAA] active:bg-[#888888]">
           NEXT
         </button>
       </div>

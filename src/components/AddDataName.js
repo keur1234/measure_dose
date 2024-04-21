@@ -165,6 +165,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
                 <option value='PEF: Pefloxacin (surrogate test for ciprofloxacin)'>PEF: Pefloxacin (surrogate test for ciprofloxacin)</option>
                 <option value='PIP: Piperacillin'>PIP: Piperacillin</option>
                 <option value='POL: Polymyxin B'>POL: Polymyxin B</option>
+                <option value='PRL: Pirlimycin'>PRL: Pirlimycin</option>
                 <option value='QDA: Quinupristin-dalfopristin'>QDA: Quinupristin-dalfopristin</option>
                 <option value='RIF: Rifampin'>RIF: Rifampin</option>
                 <option value='SAM: Ampicillin-sulbactam'>SAM: Ampicillin-sulbactam</option>
@@ -177,6 +178,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
                 <option value='TCC: Ticarcillin-clavulanate'>TCC: Ticarcillin-clavulanate</option>
                 <option value='TCY: Tetracycline'>TCY: Tetracycline</option>
                 <option value='TEC: Teicoplanin'>TEC: Teicoplanin</option>
+                <option value='TGC: Tigecycline'>TGC: Tigecycline</option>
                 <option value='TLV: Telavancin'>TLV: Telavancin</option>
                 <option value='TMP: Trimethoprim'>TMP: Trimethoprim</option>
                 <option value='TOB: Tobramycin'>TOB: Tobramycin</option>
@@ -193,7 +195,7 @@ export default function AddDataName({ onShowNumberInput , currentInde, dataLengt
 
       <div className="flex w-full justify-end m-8 ">
         <button 
-          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] hover:bg-[#AAAAAA] active:bg-[#888888]"
           type="submit" 
         >
           NEXT

@@ -22,8 +22,8 @@ export default function Home() {
 
       <div className="flex flex-col justify-between w-5/6">
         <div className="my-5 md:my-11 flex flex-col w-full">
-          <p className="text-2xl md:text-4xl font-bold">History</p>
-          <p className="md:text-xl text-[#545454]">Modify/History</p>
+          <p className="text-2xl md:text-4xl font-bold">Gallery</p>
+          <p className="md:text-xl text-[#545454]">See Result</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-x-16 gap-y-6 w-full ">

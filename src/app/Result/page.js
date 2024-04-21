@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 
 export default function Result() {
   const { astId, bacteria, name, testData } = useInputData();
+  const date = new Date();
+  // Get the current date in the format "YYYY-MM-DD"
+  const dateString = date.toISOString().split('T')[0];
 
   const router = useRouter  ();
 
@@ -23,7 +26,7 @@ export default function Result() {
           </div>
           <div className="flex flex-col md:flex-row mb-1 md:mb-2">
             <label className="font-bold">Date of antibiogram :&nbsp;</label>
-            <label> 21 December 2026</label>
+            <label>{dateString}</label>
           </div>
           <div className="flex flex-col md:flex-row mb-1 md:mb-2">
             <label className="font-bold">Bacteria :&nbsp;</label>

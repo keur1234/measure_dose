@@ -25,7 +25,7 @@ export default function New_Test() {
           <h1 className="text-2xl md:text-4xl pb-8 md:pb-16 font-bold text-center">CREATE THE NEW TEST</h1>
           
           <div className="text-2xl pb-8 md:pb-16">
-            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">AST ID</p>
+            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">AST ID*</p>
             <input 
               className="mt-2 md:mt-4 mb-1 p-2 px-4 text-2xl md:text-3xl md:min-h-20 w-full border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none"
               onChange={(e) => setAstId(e.target.value)}
@@ -35,7 +35,7 @@ export default function New_Test() {
           </div>
 
           <div className="text-2xl pb-8 md:pb-16">
-            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Bacteria</p>
+            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Bacteria*</p>
             <select 
               className="mt-2 md:mt-4 mb-1 p-2 px-4 text-2xl md:text-3xl md:min-h-20 w-full border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none" 
               name="bacterias" 
@@ -56,7 +56,7 @@ export default function New_Test() {
           </div>
 
           <div className="text-2xl pb-12 md:pb-16">
-            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Your name</p>
+            <p className="font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)]">Your Name*</p>
             <input 
               className="mt-2 md:mt-4 mb-1 p-2 px-4 text-2xl md:text-3xl md:min-h-20 w-full border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none"
               onChange={(e) => setName(e.target.value)}

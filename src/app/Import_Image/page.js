@@ -20,7 +20,7 @@ export default function Import_Image() {
     try {
         setStatus('')
         setLoading(true);
-        setLoading('Uploading...');
+        setLoading('Analysing...');
         await new Promise(resolve => setTimeout(resolve, 1000));
         const response = await fetch('http://localhost:5000/api/process_image', {
             method: 'POST',
@@ -55,7 +55,7 @@ export default function Import_Image() {
     
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
       <div className="flex flex-col w-3/4">
-        <h1 className="text-2xl md:text-4xl pb-8 md:pb-16 font-bold text-center">IMPORT IMAGE</h1>
+        <h1 className="text-2xl md:text-4xl pb-8 md:pb-16 font-bold text-center">UPLOAD DISC IMAGE</h1>
         
         <form className='flex flex-col items-center w-full px-4' action="">   
           <input 

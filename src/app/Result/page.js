@@ -14,7 +14,7 @@ export default function Result() {
 
   const ApiSendData = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/add_data', {
+      const response = await axios.post('https://clear-zone.duckdns.org:5000/api/add_data', {
         astId: astId,
         bacteria: bacteria,
         name: name,
@@ -65,7 +65,7 @@ export default function Result() {
           <p className='mb-3 md:mb-6 text-2xl md:text-3xl font-bold'>Antibiotics tested</p>
 
             {testData.map((data, index) => {
-              return <div key={index} className="mb-1 md:mb-2 flex flex-col md:flex-row w-4/5 justify-between">
+              return <div key={index} className="mb-4 md:mb-2 flex flex-col md:flex-row w-4/5 justify-between">
                   <label className="font-bold">{ data[0]}</label>
                   <label>
                     {data[0] !== "Antimicrobial or Bacteria not found" && (

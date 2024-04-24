@@ -22,7 +22,7 @@ export default function Home() {
 
   const fetchDataFromApi = async () => {
     try {
-        const response = await axios.get('http://localhost:5000/api/get_all_gallery');
+        const response = await axios.get('https://clear-zone.duckdns.org:5000/api/get_all_gallery');
         const responseData = response.data
         if (responseData) {
           setResponedata(responseData);

@@ -14,7 +14,7 @@ export default function ResultById({params}) {
 
   const fetchDataResultById = async () => {
     try {
-        const response = await axios.post('http://localhost:5000/api/get_data_by_astID', {
+        const response = await axios.post('https://clear-zone.duckdns.org:5000/api/get_data_by_astID', {
           astID: astId.slug
         });
         const responseData = response.data
@@ -38,8 +38,8 @@ export default function ResultById({params}) {
   return (
     <main className="flex flex-col mt-20 w-5/6">
       <div className="flex flex-col w-full">
-        <p className="text-2xl md:text-4xl font-bold">Result By Id</p>
-        <p className="md:text-xl text-[#545454]">The result info of the test</p>
+        <p className="text-2xl md:text-4xl font-bold">Result of AST ID : {resultData.astID}</p>
+        <p className="md:text-xl text-[#545454]">The result info of the test </p>
       </div>
 
       <div className="bg-white w-full rounded-[28px] drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] mt-8 ">
@@ -70,8 +70,8 @@ export default function ResultById({params}) {
 
       {resultLogs && resultLogs.map((data, index) => {
         return (
-          <div key={index} className="mb-1 md:mb-2 flex flex-col md:flex-row w-4/5 justify-between">
-            <label className="font-bold">{data[1]}</label>
+          <div key={index} className="mb-4 md:mb-2 flex flex-col md:flex-row w-4/5 justify-between">
+            <label className="font-bold">{data[1]} :</label>
             <label>
               {data[1] !== "Antimicrobial or Bacteria not found" && (
                 <label>{data[2]}</label>

@@ -1,23 +1,49 @@
 "use client"
 // import Link from 'next/link'
 import { useInputData } from '@/components/useInputData';
-
+import { useState } from 'react'; 
 import { useRouter } from 'next/navigation';
-
+import axios from 'axios';
 
 //add New Test
 export default function New_Test() {
   const {astId, setAstId} = useInputData();
+
   const {bacteria, setBacteria} = useInputData();
   const {name, setName} = useInputData();
-
   const router = useRouter  ();
+  const [status, setStatus] = useState('');
 
-  const handleUpdateData = (e) => {
-    e.preventDefault();
-    router.push('/Import_Image')
+  const FetchAstId = async () => {
+    try {
+      const response = await axios.post('https://clear-zone.duckdns.org:5000/api/get_data_by_astID', {
+        astID: astId
+      });
+      const responseData = response.data;
+      setStatus('AST ID: Already exists please use a different username')
+      
+      console.log('AST ID: Already Exists');
+      return false;
+
+    } catch (error) {
+      console.error('Error:', error);
+      return true;
+    }
   };
 
+   const handleUpdateData = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await FetchAstId();
+      if (result) {
+        router.push('/Import_Image');
+      } 
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+   };
+   
   return (
     <main className="flex flex-col justify-between items-center mt-20 w-5/6">
       <form className='flex items-center flex-col w-full' onSubmit={handleUpdateData}>
@@ -29,6 +55,7 @@ export default function New_Test() {
             <input 
               className="mt-2 md:mt-4 mb-1 p-2 px-4 text-2xl md:text-3xl md:min-h-20 w-full border drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-[32px] outline-none"
               onChange={(e) => setAstId(e.target.value)}
+              value={astId}
               required
             />
             <p className="text-sm md:text-lg">The AST ID is the unique name for label each dish</p>
@@ -64,7 +91,9 @@ export default function New_Test() {
             />
           </div>
         </div>
-
+          <div>
+            <p className="text-sm md:text-lg text-red-700">{status}</p>
+          </div>
         <div className="flex w-full justify-end mb-8 ">
           <button 
           className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] hover:bg-[#AAAAAA] active:bg-[#888888]"

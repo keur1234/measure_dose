@@ -24,8 +24,8 @@ export default function AddDataNumber({ onNext, onBack, currentInde, dataLength 
   const handleEditData = () => {
     editData()
     onBack(); 
-  };
-
+  };  
+  console.log(data)
   return (
     <form className="flex flex-col justify-between items-center">
       <div className="flex flex-col w-full h-max max-h-fit lg:flex-row items-center ">
@@ -48,25 +48,55 @@ export default function AddDataNumber({ onNext, onBack, currentInde, dataLength 
               value={circleRadius} 
               onChange={handleSliderChange}
             />
+          <div className = 'flex-col flex items-start '>
+        <div className = 'flex mt-6'>
+          <input
+            id="circleRadiusCheckbox"
+            type="checkbox"
+            checked={circleRadius === 76}
+            onChange={(e) => setCircleRadius(e.target.checked ? 76 : 0)}
+            className="h-6 w-6 mr-4"
+          />
+          <label htmlFor="circleRadiusCheckbox" className="text-lg md:text-2xl">
+          This Pellet Have No Inhibition Zone
+          </label>
+        </div>
+
+        <div className = 'flex mt-6'>
+          <input
+            id="circleRadiusCheckbox2"
+            type="checkbox"
+            checked={circleRadius === data[2]}
+            onChange={(e) => setCircleRadius(e.target.checked ? data[2] : 0)}
+            className="h-6 w-6 mr-4"
+          />
+          <label htmlFor="circleRadiusCheckbox2" className="text-lg md:text-2xl">
+          Use Prediction
+          </label>
+        </div>
+
+         
+          </div>
           </div>
         </div>
       </div>
 
       <div className="flex w-full justify-end m-8 ">
         <button 
-          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] mx-2"
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] hover:bg-[#AAAAAA] mx-2"
           type="button" 
           onClick={() => handleEditData()}  
         >
           BACK
         </button>
         <button 
-          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD]"
+          className="text-xl md:text-3xl py-3 md:py-5 px-16 md:px-24 font-bold drop-shadow-[0_4px_2px_rgba(0,0,0,0.25)] rounded-full bg-[#CDCDCD] hover:bg-[#AAAAAA] active:bg-[#888888]"
           type="button" 
           onClick={() => handleUpdateData(circleRadius)}  
         >
           NEXT
         </button>
+        
       </div>
     </form>
   );
